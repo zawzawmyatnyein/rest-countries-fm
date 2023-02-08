@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://flagcdn.com/us.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>REST Countries</title>
+  </head>
+  <body class="bg-light-gray dark:bg-dark-blue-bg text-dark-blue-text dark:text-white">
+    <header class="bg-white dark:bg-dark-blue shadow-md">
+        <nav class="container w-11/12 mx-auto flex justify-between items-center py-6">
+            <h1 class="font-semibold">Where in the world?</h1>
+            <button id="theme" class="inline-flex items-center gap-x-2 text-sm font-semibold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-dark-blue-text dark:stroke-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                </svg>
+                Dark Mode
+            </button>
+        </nav>
+    </header>
+
+    <main class="space-y-8 pb-12">
+        <section class="container w-11/12 mx-auto py-8 space-y-8 sm:space-y-0 sm:flex sm:justify-between sm:items-center sm:gap-x-12">
+            <form id="search"  class="relative rounded-md shadow sm:w-3/5 md:w-2/4 lg:w-2/6">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-dark-gray dark:stroke-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+                <input
+                    type="text" id="search-input" autocomplete="off" placeholder="Search for a country"
+                    class="block w-full bg-white dark:bg-dark-blue border-none rounded-md px-12 py-4 placeholder:text-sm placeholder:text-dark-gray dark:placeholder:text-white"
+                >
+            </form>
+            <select id="filter" class="inline-block w-1/2 sm:w-2/5 md:w-1/4 lg:w-1/6 sm:self-stretch border-none bg-white dark:bg-dark-blue rounded-md shadow text-sm p-4" name="filter">
+                <option selected disabled>Filter by Region</option>
+                <option value="">All</option>
+                <option value="africa">Africa</option>
+                <option value="americas">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+            </select>
+        </section>
+
+        <section id="countries" class="container w-9/12 mx-auto space-y-10 sm:grid sm:grid-cols-2 sm:w-11/12 sm:space-y-0 sm:gap-8 lg:grid-cols-3 xl:grid-cols-4 xl:gap-16">
+            <!-- <a href="/country.html" class="block w-full bg-white dark:bg-dark-blue overflow-hidden rounded-md shadow">
+                <img class="w-full h-40 object-cover" src="https://flagcdn.com/de.svg" alt="Flag of Germany">
+                <div class="flex flex-col gap-y-4 pl-6 pt-6 pb-10">
+                    <h2 class="font-extrabold">Germany</h2>
+                    <div class="text-sm font-semibold space-y-2">
+                        <div>Population: <span class="font-light">81,770,900</span></div>
+                        <div>Region: <span class="font-light">Europe</span></div>
+                        <div>Capital: <span class="font-light">Berlin</span></div>
+                    </div>
+                </div>
+            </a> -->
+            <!-- <div class="block w-full bg-white dark:bg-dark-blue overflow-hidden rounded-md shadow">
+                <div class="animate-pulse w-full h-40 bg-gray-200 dark:bg-slate-600 object-cover"></div>
+                <div class="animate-pulse flex flex-col gap-y-4 pl-6 pt-6 pb-10">
+                    <div class="h-6 w-1/3 bg-gray-200 dark:bg-slate-600"></div>
+                    <div class="space-y-2">
+                        <div class="h-4 w-2/3 bg-gray-200 dark:bg-slate-600"></div>
+                        <div class="h-4 w-1/2 bg-gray-200 dark:bg-slate-600"></div>
+                        <div class="h-4 w-1/3 bg-gray-200 dark:bg-slate-600"></div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <script type="module" src="/js/controller.js"></script>
+  </body>
+</html>
