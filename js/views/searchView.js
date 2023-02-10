@@ -2,6 +2,8 @@ class SearchView {
   _parentElement = document.querySelector('#search')
 
   addHanlderSearch(handler) {
+    if (!this._parentElement) return
+
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault()
       handler()

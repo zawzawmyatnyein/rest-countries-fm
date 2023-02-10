@@ -3,10 +3,31 @@ import { fetchData } from './utilities'
 
 export const state = {
   theme: 'light',
+  country: {},
   search: {
     query: '',
     results: [],
   },
+}
+
+const createCountryObj = function (data) {
+  const country = data[0]
+
+  const { name, population, region, subregion, capital, tld, languages, currencies, borders, flags } = country
+
+  return {
+    officialName: name.official,
+    nativeName: name.nativeName[Object.keys(name.nativeName)[0]].common,
+    population: population,
+    region: region,
+    subregion: subregion,
+    capital: capital ? [...capital] : '',
+    tld: [...tld],
+    languages: Object.values(languages),
+    currencies: Object.values(currencies)[0],
+    borderCountries: borders ? [...borders] : '',
+    flag: flags.svg,
+  }
 }
 
 const createCountriesArr = function (data) {
@@ -20,6 +41,26 @@ const createCountriesArr = function (data) {
       flag: flags.svg,
     }
   })
+}
+
+export const getCountryByName = async function (name) {
+  try {
+    const data = await fetchData(`${API_URL}/name/${name}`)
+
+    state.country = createCountryObj(data)
+  } catch (err) {
+    throw err
+  }
+}
+
+export const getCountryByAlphaCode = async function (code) {
+  try {
+    const data = await fetchData(`${API_URL}/alpha/${code}`)
+
+    state.country = createCountryObj(data)
+  } catch (err) {
+    throw err
+  }
 }
 
 export const getCountries = async function (query = '') {
@@ -44,4 +85,20 @@ export const getCountriesByRegion = async function (region = '') {
   } catch (err) {
     throw err
   }
+}
+
+export const getThemefromStorage = function () {
+  if (localStorage.theme) state.theme = localStorage.theme
+}
+
+export const switchTheme = function () {
+  if (state.theme === 'light') {
+    return persistTheme('dark')
+  }
+  persistTheme('light')
+}
+
+export const persistTheme = function (theme) {
+  state.theme = theme
+  localStorage.theme = theme
 }

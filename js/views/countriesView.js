@@ -6,6 +6,8 @@ class CountriesView extends View {
   _errorMessage = 'No country found for your search term! Please try again'
 
   addHandlerRender(handler) {
+    if (!this._parentElement) return
+
     window.addEventListener('load', handler)
   }
 

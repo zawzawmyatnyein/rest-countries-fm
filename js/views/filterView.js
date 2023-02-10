@@ -2,6 +2,8 @@ class FilterView {
   _parentElement = document.querySelector('#filter')
 
   addHandlerFilter(handler) {
+    if (!this._parentElement) return
+
     this._parentElement.addEventListener('change', handler)
   }
 

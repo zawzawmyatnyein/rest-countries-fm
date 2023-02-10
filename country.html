@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://flagcdn.com/us.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>REST Countries - Details</title>
+    <script>
+        if (
+            localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        } else {
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'light'
+        }
+    </script>
+  </head>
+  <body class="bg-light-gray dark:bg-dark-blue-bg text-dark-blue-text dark:text-white">
+    <header class="bg-white dark:bg-dark-blue shadow-md">
+        <nav class="container w-11/12 mx-auto flex justify-between items-center py-6">
+            <h1 class="font-semibold">Where in the world?</h1>
+            <button id="theme" class="inline-flex items-center gap-x-2 text-sm font-semibold">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 stroke-dark-blue-text dark:stroke-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                </svg>
+                Dark Mode -->
+            </button>
+        </nav>
+    </header>
+
+    <main class="space-y-8 pb-12">
+        <section class="container w-10/12 lg:w-11/12 mx-auto py-8">
+            <a href="/" class="inline-block border-none bg-white dark:bg-dark-blue shadow-md text-sm py-2 px-6">
+                <div class="flex items-center gap-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                    </svg>
+                    Back
+                </div>
+            </a>
+        </section>
+
+        <section id="country" class="container w-10/12 lg:w-11/12 mx-auto space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 xl:gap-x-24 lg:items-center">
+            <!-- <div class="w-full bg-white dark:bg-dark-blue overflow-hidden shadow">
+                <img class="w-full h-full object-cover" src="https://flagcdn.com/de.svg" alt="Flag of Germany">
+            </div>
+            <div class="space-y-8">
+                <h2 class="text-xl font-extrabold">Germany</h2>
+                <div class="space-y-8 sm:space-y-0 sm:flex sm:justify-between sm:items-start sm:mr-8">
+                    <div class="font-semibold text-sm space-y-2">
+                        <div>Native Name: <span class="font-light">Belge</span></div>
+                        <div>Population: <span class="font-light">11,315,511</span></div>
+                        <div>Region: <span class="font-light">Europe</span></div>
+                        <div>Sub Region: <span class="font-light">Western Europe</span></div>
+                        <div>Capital: <span class="font-light">Brussels</span></div>
+                    </div>
+                    <div class="font-semibold text-sm space-y-2">
+                        <div>Top Level Domain: <span class="font-light">.be</span></div>
+                        <div>Currencies: <span class="font-light">Euro</span></div>
+                        <div>Languages: <span class="font-light">Dutch, French, German</span></div>
+                    </div>
+                </div>
+                <div class="space-y-4 lg:space-y-0 lg:flex lg:items-start lg:gap-x-4">
+                    <h3 class="font-semibold">Border Countries:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="" class="inline-block border-none bg-white dark:bg-dark-blue shadow-md text-sm py-2 px-4">French</a>
+                        <a href="" class="inline-block border-none bg-white dark:bg-dark-blue shadow-md text-sm py-2 px-4">Germany</a>
+                        <a href="" class="inline-block border-none bg-white dark:bg-dark-blue shadow-md text-sm py-2 px-4">Netherlands</a>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <script type="module" src="/js/controller.js"></script>
+  </body>
+</html>
